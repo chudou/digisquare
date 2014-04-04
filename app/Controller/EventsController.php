@@ -95,4 +95,14 @@ class EventsController extends AppController {
 		$this->RequestHandler->renderAs($this, 'rss');
 	}
 
+	public function event24h(){
+		$demain = date('Y-m-d', strtotime('+1 day')); 
+		/*$events = $this->Event->find('all', array(
+			'contain' => array(),
+			'conditions' => array('Event.start_at >=' => $demain),
+		));*/
+		$events24h = $this->Paginate('Event', array('Event.start_at >=' => $demain));
+		$this->set(compact('events24h'));
+	}
+
 }

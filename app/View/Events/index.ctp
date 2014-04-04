@@ -5,6 +5,11 @@
 			array('controller' => 'events', 'action' => 'add'),
 			array('escape' => false, 'class' => 'btn btn-primary pull-right')
 		); ?> 	
+		<?php echo $this->Html->link(
+			'<i class="icon-plus-sign icon-white"></i> ' .__('Event24h'), 
+			array('controller' => 'events', 'action' => 'event24h'),
+			array('escape' => false, 'class' => 'btn btn-primary pull-right')
+		); ?> 
 		<h1><?php echo __('Events'); ?></h1>
 	</div>	
 	<table class="table table-bordered table-striped">
