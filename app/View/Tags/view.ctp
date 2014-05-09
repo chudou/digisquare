@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="tags view">
 <h2><?php echo __('Tag'); ?></h2>
 	<dl>
@@ -77,29 +78,29 @@
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
+=======
+>>>>>>> upstream/master
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Event'), array('controller' => 'events', 'action' => 'add')); ?> </li>
-		</ul>
+
+
+<div role="main">
+	<div class="page-header">
+		<?php echo $this->Html->link(
+			'<i class="icon-plus-sign icon-white"></i> ' . __('Edit'),
+			array('action' => 'edit', 'id' => $tag['Tag']['id']),
+			array('escape' => false, 'class' => 'btn btn-primary pull-right')
+		); ?>
+		<?php echo $this->Form->postLink(
+			'<i class="icon-plus-sign icon-white"></i> ' . __('Delete'),
+			array('action' => 'delete', 'id' => $tag['Tag']['id']), 
+			array('escape' => false, 'class' => 'btn btn-danger pull-right', 'style' => 'margin-right:10px;'),
+			__('Are you sure you want to delete # %s?', $tag['Tag']['id'])
+		); ?>		
+		<h1><?php echo h($tag['Tag']['name']); ?></h1>
 	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Startups'); ?></h3>
-	<?php if (!empty($tag['Startup'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Edition Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Description'); ?></th>
-		<th><?php echo __('Contacts'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($tag['Startup'] as $startup): ?>
+	<table class="table table-bordered table-striped">
 		<tr>
+<<<<<<< HEAD
 			<td><?php echo $startup['id']; ?></td>
 			<td><?php echo $startup['edition_id']; ?></td>
 			<td><?php echo $startup['name']; ?></td>
@@ -113,14 +114,27 @@
 				<?php echo $this->Html->Link(__('Startup'), ); ?>
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'startups', 'action' => 'delete', $startup['id']), null, __('Are you sure you want to delete # %s?', $startup['id'])); ?>
 			</td>
+=======
+			<td><?php echo __('Id'); ?></td>
+			<td><?php echo h($tag['Tag']['id']); ?></td>
 		</tr>
-	<?php endforeach; ?>
+		<tr>
+			<td><?php echo __('Name'); ?></td>
+			
+			<td><?php echo h($tag['Tag']['name']); ?></td>
+		</tr>
+		<tr>
+			<td><?php echo __('Created'); ?></td>
+			
+			<td><?php echo h($tag['Tag']['created']); ?></td>
+		</tr>
+		<tr>
+			<td><?php echo __('Modified'); ?></td>
+			
+			<td><?php echo h($tag['Tag']['modified']); ?></td>
+>>>>>>> upstream/master
+		</tr>
 	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Startup'), array('controller' => 'startups', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
+
+		
