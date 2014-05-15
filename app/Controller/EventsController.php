@@ -96,13 +96,17 @@ class EventsController extends AppController {
 	}
 
 	public function event24h(){
-		$demain = date('Y-m-d', strtotime('+1 day')); 
-		/*$events = $this->Event->find('all', array(
-			'contain' => array(),
-			'conditions' => array('Event.start_at >=' => $demain),
-		));*/
-		$events24h = $this->Paginate('Event', array('Event.start_at >=' => $demain));
-		$this->set(compact('events24h'));
+		$tomorow = date('Y-m-d', strtotime('+1 day'
+		));
+		$twitter = new Endroid\Twitter\Twitter(
+			"W8CeK0fCIeSHyk9nWvQiOdre8",
+			"H6Y5AOlDu4sbYM4ezgmMbzP1yVGvNLeYUtwoAubcGYkabYNa8H",
+			"321403621-Bp5GYmQc5sAQHGdIEtqfuzWhyvIKMyxxMM4Mv8M8",
+			"n0uaIeTWDXNz0unsVgEpj7f8WsbzscPusOIgD7PaUbryK");
+		$events = $this->Paginator->paginate('Event',  array(
+			'Event.start_at >=' => $tomorow
+		));
+		$this->set(compact('events'));
 	}
 
 }
